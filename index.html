@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celestial Sphere</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+
+<body oncontextmenu="return false;">
+    <input type="checkbox" class="btn-check" id="btn-check-outlined" data-bs-toggle="offcanvas" data-bs-target="#controlPanel" checked>
+    <label class="btn btn-outline-light position-absolute m-3" for="btn-check-outlined">
+        <i class="bi bi-sliders"></i>
+    </label>
+    <div class="offcanvas offcanvas-end show bg-transparent text-white" tabindex="-1" data-bs-backdrop="false" id="controlPanel">
+        <div class="offcanvas-body">
+            <h5>Coordinate System</h5>
+            <div class="btn-group mb-3 w-100" role="group">
+                <input type="radio" class="btn-check" name="system" id="horizantal">
+                <label class="btn btn-outline-light" for="horizantal">Horizantal</label>
+
+                <input type="radio" class="btn-check" name="system" id="equatorial" checked>
+                <label class="btn btn-outline-light" for="equatorial">Equatorial</label>
+            </div>
+
+            <h5>Time Speed</h5>
+            <div class="btn-group mb-3 w-100" role="group">
+                <input type="radio" class="btn-check" name="speed" id="stop" onclick="speed = 0" checked>
+                <label class="btn btn-outline-light" for="stop">Stop</label>
+
+                <input type="radio" class="btn-check" name="speed" id="speedx1" onclick="speed = 1" checked>
+                <label class="btn btn-outline-light" for="speedx1">x1</label>
+
+                <input type="radio" class="btn-check" name="speed" id="speedx10" onclick="speed = 10">
+                <label class="btn btn-outline-light" for="speedx10">x10</label>
+
+                <input type="radio" class="btn-check" name="speed" id="speedx100" onclick="speed = 100">
+                <label class="btn btn-outline-light" for="speedx100">x100</label>
+
+                <input type="radio" class="btn-check" name="speed" id="speedx1000" onclick="speed = 1000">
+                <label class="btn btn-outline-light" for="speedx1000">x1000</label>
+            </div>
+
+            <h5>Coordinates</h5>
+            <div class="input-group mb-2">
+                <span class="col-6 input-group-text" id="inputAlphaText">Right Ascension: RA</span>
+                <input type="text" class="col form-control" value="0.00h" id="inputAlpha" spellcheck="false">
+                <input type="checkbox" class="btn-check" onclick="playAlpha = !playAlpha" id="playAlpha">
+                <label class="btn btn-outline-light border-start" for="playAlpha"><i class="bi bi-play-circle"></i></label>
+            </div>
+            <div class="input-group mb-3">
+                <span class="col-6 input-group-text" id="inputBetaText">Declination: Dec</span>
+                <input type="text" class="col form-control" value="0.00°" id="inputBeta" spellcheck="false">
+                <input type="checkbox" class="btn-check" onclick="playBeta = !playBeta" id="playBeta">
+                <label class="btn btn-outline-light border-start" for="playBeta"><i class="bi bi-play-circle"></i></label>
+            </div>
+
+            <h5>Displays</h5>
+            <div class="btn-group mb-3 w-100" role="group">
+                <input type="checkbox" class="btn-check" id="displayGrid" onclick="displayGrid = !displayGrid" checked>
+                <label class="btn btn-outline-light" for="displayGrid">Grid</label>
+
+                <input type="checkbox" class="btn-check" id="displayScales" onclick="displayScales = !displayScales">
+                <label class="btn btn-outline-light" for="displayScales">Scales</label>
+
+                <input type="checkbox" class="btn-check" id="displayLabels" onclick="displayLabels = !displayLabels" checked>
+                <label class="btn btn-outline-light" for="displayLabels">Labels</label>
+            </div>
+        </div>
+    </div>
+
+    <script src="celestial.js"></script>
+</body>
+
+</html>
+
+<style>
+    html,
+    body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    
+    div {
+        user-select: none;
+    }
+    
+    canvas {
+        display: block;
+    }
+    
+    .fade {
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+    
+    .fade:hover {
+        opacity: 1;
+    }
+</style>
