@@ -115,12 +115,12 @@ equatorial.addEventListener('click', () => {
 })
 
 function preload() {
-    earth = loadImage('/images/earth.jpg')
-    galaxy = loadImage('/images/galaxy.jpg')
-    field = loadImage('/images/field.jpg')
+    earth = loadImage('earth.jpg')
+    galaxy = loadImage('galaxy.jpg')
+    field = loadImage('field.jpg')
 
-    observer_ = loadImage('/images/observer_.png')
-    observer = loadModel('/models/observer.obj')
+    observer_ = loadImage('observer_.png')
+    observer = loadModel('observer.obj')
 }
 
 function setup() {
