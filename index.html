@@ -16,10 +16,14 @@
 
 <body oncontextmenu="return false;">
     <input type="checkbox" class="btn-check" id="btn-check-outlined" data-bs-toggle="offcanvas" data-bs-target="#controlPanel" checked>
-    <label class="btn btn-outline-light position-absolute m-3" for="btn-check-outlined">
+    <label class="btn btn-sm btn-outline-light position-absolute m-2" for="btn-check-outlined">
         <i class="bi bi-sliders"></i>
     </label>
     <div class="offcanvas offcanvas-end show bg-transparent text-white" tabindex="-1" data-bs-backdrop="false" id="controlPanel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasLabel"></h5>
+            <button type="button" class="btn-close text-reset bg-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
         <div class="offcanvas-body">
             <h5>Coordinate System</h5>
             <div class="btn-group mb-3 w-100" role="group">
