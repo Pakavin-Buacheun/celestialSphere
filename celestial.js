@@ -336,7 +336,8 @@ function draw() {
         pop()
 
         push()
-        directionalLight(color(255), -cos(time / 365), 0, -sin(time / 365))
+        if(width >= height) directionalLight(color(255), -cos(time / 365), 0, -sin(time / 365))
+        else ambientLight(140)
         rotateZ(180)
         translate(0, -rw * 0.02, 0)
         scale(rw / 900)
@@ -359,7 +360,8 @@ function draw() {
 
         //earth
         push()
-        directionalLight(color(255), -cos(time / 365), 0, -sin(time / 365))
+        if(width >= height) directionalLight(color(255), -cos(time / 365), 0, -sin(time / 365))
+        else ambientLight(140)
         rotateY(time)
         noStroke()
         texture(earth)
